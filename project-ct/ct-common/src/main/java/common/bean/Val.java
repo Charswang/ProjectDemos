@@ -1,5 +1,6 @@
 package common.bean;
 
 public interface Val {
-    public Object value();
+    public void setValue(Object value);
+    public Object getValue();
 }

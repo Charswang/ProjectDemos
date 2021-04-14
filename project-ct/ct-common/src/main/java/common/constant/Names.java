@@ -14,7 +14,11 @@ public enum Names implements Val {
         this.name = name;
     }
 
-    public String value() {
+    public void setValue(Object value) {
+        this.name = (String) value;
+    }
+
+    public Object getValue() {
         return null;
     }
 }

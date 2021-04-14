@@ -1,13 +1,13 @@
 package common.bean;
 
-public class Data implements Val {
+public abstract class Data implements Val {
     private String content;
 
-    public void setValue(String value){
-        content = value;
+    public void setValue(Object value) {
+        content = (String) value;
     }
 
-    public Object value() {
+    public String getValue() {
         return content;
     }
 }
