@@ -6,7 +6,7 @@ import common.bean.Val;
  * 名称常量枚举类
  */
 public enum Names implements Val {
-    NAMESPACE("ct");
+    NAMESPACE("ct"),TOPIC("ct");
 
     private String name;
 
@@ -18,7 +18,7 @@ public enum Names implements Val {
         this.name = (String) value;
     }
 
-    public Object getValue() {
-        return null;
+    public String getValue() {
+        return name;
     }
 }

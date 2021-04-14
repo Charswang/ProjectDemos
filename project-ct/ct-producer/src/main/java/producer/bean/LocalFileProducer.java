@@ -42,7 +42,7 @@ public class LocalFileProducer implements Producer {
                 String startDate = "20200101000000";
                 String endDate = "20210101000000";
 
-                long startTime = DateUtil.parse(startDate,"yyyyMMddHHmmss").getTime();
+                long startTime = DateUtil.parse(startDate,"yyyyMMddHHmmss").getTime(); // 返回自从GMT 1970-01-01 00:00:00到此date对象上时间的毫秒数。
                 long endTime = DateUtil.parse(endDate,"yyyyMMddHHmmss").getTime();
                 long callTime = startTime + (long)((endTime - startTime) * Math.random());
                 String callTimeString = DateUtil.format(new Date(callTime),"yyyyMMddHHmmss");

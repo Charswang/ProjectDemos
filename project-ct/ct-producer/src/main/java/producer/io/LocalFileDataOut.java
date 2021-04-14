@@ -28,7 +28,7 @@ public class LocalFileDataOut implements DataOut {
 
     public void write(String data) throws Exception {
         writer.println(data);
-        writer.flush();
+        writer.flush(); // 每写一条就flush一条
     }
 
     public void close() throws IOException {
