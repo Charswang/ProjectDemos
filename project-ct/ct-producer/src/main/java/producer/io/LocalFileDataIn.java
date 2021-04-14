@@ -28,12 +28,13 @@ public class LocalFileDataIn implements DataIn {
         return null;
     }
 
+    // 泛型更具有通用性
     public <T extends Data> List<T> read(Class<T> clazz) throws Exception {
         List<T> ts = new ArrayList<T>();
         try {
             String line = null;
             while ((line=br.readLine())!=null){
-                T t = clazz.newInstance();
+                T t = clazz.newInstance(); // 反射
                 t.setValue(line);
                 ts.add(t);
             }
