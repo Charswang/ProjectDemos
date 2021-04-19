@@ -20,11 +20,17 @@ public class CalllogConsumer implements Consumer {
             KafkaConsumer<String,String> kafkaConsumer = new KafkaConsumer<String, String>(properties);
             // 订阅主题
             kafkaConsumer.subscribe(Arrays.asList(Names.TOPIC.getValue()));
+
+            // hbase数据访问对象
+            HBasedao hbasedao = new HBasedao();
+            hbasedao.init(); // hbase初始化
+
             while(true){
                 ConsumerRecords<String, String> consumerRecords = kafkaConsumer.poll(100);// 每隔100ms拉取一次数据
                 for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
                     // System.out.println(consumerRecord.key() + "---" + consumerRecord.value());
                     System.out.println(consumerRecord.value());
+                    hbasedao.insertDatas(); // 将数据插入hbase
                 }
             }
         } catch(Exception e){
